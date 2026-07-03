@@ -1,0 +1,5 @@
+name: WaterPushMob
+version: 1.0
+main: me.eaz.waterpushmob.WaterPushMob
+author: Eaz
+description: Makes water push mobs like newer Minecraft versions.
