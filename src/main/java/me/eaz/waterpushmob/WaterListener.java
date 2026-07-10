@@ -25,9 +25,17 @@ public class WaterListener implements Listener {
 
                 Vector velocity = entity.getVelocity();
 
-                velocity.add(new Vector(0.12, 0, 0));
+// Only help mobs that are almost completely stuck.
+if (Math.abs(velocity.getX()) < 0.03 && Math.abs(velocity.getZ()) < 0.03) {
 
-                entity.setVelocity(velocity);
+    // Give a very small horizontal nudge.
+    velocity.setX(velocity.getX() + 0.03);
+
+    // Never add upward motion.
+    velocity.setY(Math.min(velocity.getY(), 0));
+
+    entity.setVelocity(velocity);
+}
             }
         }
     }
